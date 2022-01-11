@@ -70,8 +70,40 @@ namespace RPG_Game
                 {
                     if (PlayerBox.Bounds.IntersectsWith(enemy.Bounds))
                     {
+                        CombatForm cf = new CombatForm();
                         enemy.Location = new Point(1000, 1000);
-                        MessageBox.Show("test");
+                        switch (enemy.Name)
+                        {
+                            case "EnemyBox1":
+                                cf.combat.Player = map.Player;
+                                cf.combat.Enemy = map.Enemies[0];
+                                cf.ShowDialog();
+                                break;
+
+                            case "EnemyBox2":
+                                cf.combat.Player = map.Player;
+                                cf.combat.Enemy = map.Enemies[1];
+                                cf.ShowDialog();
+                                break;
+
+                            case "EnemyBox3":
+                                cf.combat.Player = map.Player;
+                                cf.combat.Enemy = map.Enemies[2];
+                                cf.ShowDialog();
+                                break;
+
+                            case "EnemyBox4":
+                                cf.combat.Player = map.Player;
+                                cf.combat.Enemy = map.Enemies[3];
+                                cf.ShowDialog();
+                                break;
+
+                            case "EnemyBox5":
+                                cf.combat.Player = map.Player;
+                                cf.combat.Enemy = map.Enemies[4];
+                                cf.ShowDialog();
+                                break;
+                        }
                     }
                 }
             }
