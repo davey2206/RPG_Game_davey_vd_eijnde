@@ -16,10 +16,12 @@ namespace RPG_Game
         private int posY = 374;
         private Map map = new Map();
 
-        public MapForm()
+        public MapForm(Gender gender, string name)
         {
             InitializeComponent();
             map.createEnemy();
+            map.CreatePlayer(gender, name);
+            PlayerBox.Image = map.Player.Picture;
             setEnemeys();
         }
 

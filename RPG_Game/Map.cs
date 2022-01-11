@@ -9,13 +9,24 @@ namespace RPG_Game
     internal class Map
     {
         private List<Enemy> enemies = new List<Enemy>();
+        private Player player;
         private Random rng = new Random();
+
+        public void CreatePlayer(Gender g, string n)
+        {
+            player = new Player(n, g);
+        }
+
+        public Player Player
+        {
+            get { return player; }
+        }
 
         public void createEnemy()
         {
             for (int i = 0; i < 5; i++)
             {
-                int x = rng.Next(50, 750);
+                int x = rng.Next(100, 750);
                 int y = rng.Next(50, 450);
                 switch (rng.Next(1, 4))
                 {

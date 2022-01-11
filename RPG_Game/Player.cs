@@ -18,24 +18,24 @@ namespace RPG_Game
         #region private variables
 
         private string name;
-        private int heath;
-        private int attack;
+        private int heath = 100;
+        private int attack = 5;
         private Gender gender;
         private Image picture;
 
         #endregion private variables
 
-        public Player(string n, int h, int a, Gender g)
+        public Player(string n, Gender g)
         {
             name = n;
-            heath = h;
-            attack = a;
             gender = g;
             if (g == Gender.female)
             {
+                picture = Properties.Resources.Player_girl;
             }
             else
             {
+                picture = Properties.Resources.Player_boy;
             }
         }
 

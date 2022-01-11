@@ -118,6 +118,7 @@ namespace RPG_Game
             this.Controls.Add(this.EnemyBox1);
             this.Controls.Add(this.PlayerBox);
             this.Name = "MapForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MapForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.EnemyBox5)).EndInit();
