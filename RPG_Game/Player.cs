@@ -18,10 +18,12 @@ namespace RPG_Game
         #region private variables
 
         private string name;
-        private int heath = 100;
-        private int attack = 5;
+        private int health = 75;
+        private int minAttack = 5;
+        private int maxAttack = 10;
         private Gender gender;
         private Image picture;
+        private Random rng = new Random();
 
         #endregion private variables
 
@@ -46,14 +48,19 @@ namespace RPG_Game
             get { return name; }
         }
 
-        public int Heath
+        public int Health
         {
-            get { return heath; }
+            get { return health; }
         }
 
-        public int Attack
+        public int MinAttack
         {
-            get { return attack; }
+            get { return minAttack; }
+        }
+
+        public int MaxAttack
+        {
+            get { return maxAttack; }
         }
 
         public Gender Gender
@@ -68,13 +75,16 @@ namespace RPG_Game
 
         #endregion public variables
 
-        public void Takedamage(Enemy enemy)
+        public string Takedamage(Enemy enemy)
         {
-            heath = heath - enemy.Attack;
-            if (heath <= 0)
-            {
-                //dead
-            }
+            int atk = rng.Next(enemy.MinAttack, enemy.MaxAttack);
+            health = health - atk;
+            return atk.ToString();
+        }
+
+        public override string ToString()
+        {
+            return name + "  |  " + health + " HP";
         }
     }
 }

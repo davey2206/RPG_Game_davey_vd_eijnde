@@ -31,15 +31,15 @@ namespace RPG_Game
                 switch (rng.Next(1, 4))
                 {
                     case 1:
-                        enemies.Add(new Enemy(MonsterName.Slime, 10, 1, x, y, Properties.Resources.slime));
+                        enemies.Add(new Enemy(MonsterName.Slime, 10, 1, 5, x, y, Properties.Resources.slime));
                         break;
 
                     case 2:
-                        enemies.Add(new Enemy(MonsterName.Bandit, 25, 3, x, y, Properties.Resources.bandit));
+                        enemies.Add(new Enemy(MonsterName.Bandit, 25, 4, 7, x, y, Properties.Resources.bandit));
                         break;
 
                     case 3:
-                        enemies.Add(new Enemy(MonsterName.Goblin, 15, 2, x, y, Properties.Resources.goblin));
+                        enemies.Add(new Enemy(MonsterName.Goblin, 15, 2, 6, x, y, Properties.Resources.goblin));
                         break;
                 }
             }

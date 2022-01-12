@@ -22,5 +22,15 @@ namespace RPG_Game
             get { return enemy; }
             set { enemy = value; }
         }
+
+        public string PlayerAttack()
+        {
+            return "you deal " + enemy.Takedamage(player) + " damage";
+        }
+
+        public string EnemyAttack()
+        {
+            return "you take " + Player.Takedamage(enemy) + " damage";
+        }
     }
 }

@@ -19,19 +19,22 @@ namespace RPG_Game
         #region private variables
 
         private MonsterName name;
-        private int heath;
-        private int attack;
+        private int health;
+        private int minAttack;
+        private int maxAttack;
         private int location_x;
         private int location_y;
         private Image picture;
+        private Random rng = new Random();
 
         #endregion private variables
 
-        public Enemy(MonsterName n, int h, int a, int x, int y, Image p)
+        public Enemy(MonsterName n, int h, int minA, int maxA, int x, int y, Image p)
         {
             name = n;
-            heath = h;
-            attack = a;
+            health = h;
+            minAttack = minA;
+            maxAttack = maxA;
             location_x = x;
             location_y = y;
             picture = p;
@@ -44,14 +47,19 @@ namespace RPG_Game
             get { return name; }
         }
 
-        public int Heath
+        public int Health
         {
-            get { return heath; }
+            get { return health; }
         }
 
-        public int Attack
+        public int MinAttack
         {
-            get { return attack; }
+            get { return minAttack; }
+        }
+
+        public int MaxAttack
+        {
+            get { return maxAttack; }
         }
 
         public int Location_x
@@ -71,14 +79,16 @@ namespace RPG_Game
 
         #endregion public variables
 
-        public void Takedamage(Player player)
+        public string Takedamage(Player player)
         {
-            heath = heath - player.Attack;
+            int atk = rng.Next(player.MinAttack, player.MaxAttack);
+            health = health - atk;
+            return atk.ToString();
+        }
 
-            if (heath <= 0)
-            {
-                //dead
-            }
+        public override string ToString()
+        {
+            return name + "  |  " + health + " HP";
         }
     }
 }
